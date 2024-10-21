@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios del Aeropuerto</title>
+    <link rel="stylesheet" href="gestion.css">
+</head>
+<body>
+    <!-- Barra de navegación (espacio reservado) -->
+    <header>
+        <nav class="navbar">
+            <div class="logo" onclick="window.location.href='menu.html'">
+                <img src="/IMG/Avion.webp" alt="Logo Aeropuerto">
+                <span>Aeropuerto Internacional</span>
+            </div>
+            <ul>
+                <li><a href="reserva.html">Reserva de Estacionamiento</a></li>
+                <li><a href="gestion.html">Gestión de Empleados</a></li>
+                <li><a href="incidencias.html">Reporte de Incidencias</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <section class="gestion-usuarios">
+            <h2>Gestión de Usuarios del Aeropuerto</h2>
+            <form id="gestion-form">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+
+                <label for="cedula">Cédula:</label>
+                <input type="text" id="cedula" name="cedula" required>
+
+                <label for="cargo">Cargo:</label>
+                <select id="cargo" name="cargo" required>
+                    <option value="piloto">Piloto</option>
+                    <option value="personal-de-tierra">Personal de Tierra</option>
+                    <option value="seguridad">Seguridad</option>
+                    <option value="mantenimiento">Mantenimiento</option>
+                    <option value="administrador">Administrador</option>
+                </select>
+
+                <div id="admin-access" style="display:none;">
+                    <label for="admin-clave">Clave de Administrador:</label>
+                    <input type="password" id="admin-clave" name="admin-clave">
+                </div>
+
+                <button type="submit" id="iniciar-sesion-btn">Iniciar Sesión</button>
+            </form>
+
+            <div id="mensaje-rol" style="display:none; color:green;">
+                <!-- Aquí se mostrará el rol y horario de trabajo -->
+            </div>
+        </section>
+
+        <!-- Tabla de inicio de sesión -->
+        <section class="tabla-inicios-sesion">
+            <h2>Inicios de Sesión</h2>
+            <table id="tabla-inicios-sesion">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Cargo</th>
+                        <th>Rol</th>
+                        <th>Hora de Trabajo</th>
+                        <th>Acciones</th> <!-- Solo visible para Administradores -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Los datos de inicio de sesión se insertarán aquí -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="gestion.js"></script>
+</body>
+</html>

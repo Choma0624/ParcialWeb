@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Incidencias</title>
+    <link rel="stylesheet" href="incidencias.css">
+</head>
+<body>
+    <!-- Barra de navegación (espacio reservado) -->
+    <header>
+        <header>
+            <nav class="navbar">
+                <div class="logo" onclick="window.location.href='menu.html'">
+                    <img src="/IMG/Avion.webp" alt="Logo Aeropuerto">
+                    <span>Aeropuerto Internacional</span>
+                </div>
+                <ul>
+                    <li><a href="reserva.html">Reserva de Estacionamiento</a></li>
+                    <li><a href="gestion.html">Gestión de Empleados</a></li>
+                    <li><a href="incidencias.html">Reporte de Incidencias</a></li>
+            </ul>
+        </nav>
+    
+    </header>
+
+    <main>
+        <section class="acceso-reporte">
+            <h2>Acceso a Reporte de Incidencias</h2>
+            <form id="acceso-form">
+                <label for="clave">Clave de Administrador:</label>
+                <input type="password" id="clave" required>
+                <button type="submit">Ingresar</button>
+            </form>
+        </section>
+
+        <section class="reporte-incidencias" style="display:none;">
+            <h2>Registrar Incidencias</h2>
+            <form id="reporte-form">
+                <label for="tipo-reporte">Tipo de Reporte:</label>
+                <select id="tipo-reporte" required>
+                    <option value="mantenimiento">Mantenimiento</option>
+                    <option value="retrasos">Retrasos</option>
+                    <option value="seguridad">Seguridad</option>
+                </select>
+
+                <!-- Opciones de Mantenimiento -->
+                <div id="mantenimiento-opciones" style="display:none;">
+                    <label for="tipo-mantenimiento">Tipo de Mantenimiento:</label>
+                    <select id="tipo-mantenimiento">
+                        <option value="motor">Revisión de Motor</option>
+                        <option value="sistema-hidraulico">Sistema Hidráulico</option>
+                        <option value="cambio-neumaticos">Cambio de Neumáticos</option>
+                        <option value="sistema-electrico">Sistema Eléctrico</option>
+                        <option value="frenos">Frenos</option>
+                        <option value="inspeccion-exterior">Inspección Exterior</option>
+                        <option value="sistema-avionica">Sistema de Aviónica</option>
+                        <option value="limpieza-tanques">Limpieza de Tanques</option>
+                    </select>
+
+                    <label for="id-vuelo-mantenimiento">ID del Vuelo:</label>
+                    <input type="text" id="id-vuelo-mantenimiento">
+
+                    <label for="comentario-mantenimiento">Comentario:</label>
+                    <textarea id="comentario-mantenimiento" rows="4"></textarea>
+                </div>
+
+                <!-- Opciones de Retrasos -->
+                <div id="retrasos-opciones" style="display:none;">
+                    <label for="id-vuelo-retraso">ID del Vuelo:</label>
+                    <input type="text" id="id-vuelo-retraso">
+
+                    <label for="origen">Origen:</label>
+                    <input type="text" id="origen">
+
+                    <label for="destino">Destino:</label>
+                    <input type="text" id="destino">
+
+                    <label for="tiempo-retraso">Tiempo de Retraso (min):</label>
+                    <input type="number" id="tiempo-retraso">
+
+                    <label for="comentario-retraso">Comentario:</label>
+                    <textarea id="comentario-retraso" rows="4"></textarea>
+                </div>
+
+                <!-- Opciones de Seguridad -->
+                <div id="seguridad-opciones" style="display:none;">
+                    <label for="tipo-seguridad">Tipo de Incidencia de Seguridad:</label>
+                    <select id="tipo-seguridad">
+                        <option value="objetos-peligrosos">Objetos Peligrosos</option>
+                        <option value="violacion-de-zonas">Violación de Zonas Restringidas</option>
+                        <option value="equipaje-no-reclamado">Equipaje No Reclamado</option>
+                        <option value="amenazas">Amenazas</option>
+                        <option value="fallo-sistema-seguridad">Fallo del Sistema de Seguridad</option>
+                    </select>
+
+                    <label for="comentario-seguridad">Comentario:</label>
+                    <textarea id="comentario-seguridad" rows="4"></textarea>
+                </div>
+
+                <button type="submit">Enviar</button>
+            </form>
+
+            <p id="mensaje-envio" style="color:green; display:none;">Reporte enviado con éxito</p>
+        </section>
+
+        <!-- Tabla de reportes -->
+        <section class="tabla-reportes">
+            <button id="consultar-btn">Consultar Reportes</button>
+            <table id="tabla-reportes" style="display:none;">
+                <thead>
+                    <tr>
+                        <th>Tipo de Reporte</th>
+                        <th>Detalles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Los reportes ya hechos se insertarán aquí -->
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <script src="incidencias.js"></script>
+</body>
+</html>
